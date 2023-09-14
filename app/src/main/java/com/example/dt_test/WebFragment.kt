@@ -13,12 +13,13 @@ class WebFragment : Fragment() {
     private val webView by lazy {
         view?.findViewById<WebView>(R.id.myWeb)
     }
-
+    private var url  = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        url = arguments?.getString("URL") ?: ""
         return inflater.inflate(R.layout.fragment_web, container, false)
     }
 
@@ -50,7 +51,7 @@ class WebFragment : Fragment() {
         if (savedInstanceState != null) {
             webView?.restoreState(savedInstanceState)
         } else {
-            webView?.loadUrl("https://dzen.ru")
+            webView?.loadUrl(url!!)
         }
 
         val cookieManager = CookieManager.getInstance()

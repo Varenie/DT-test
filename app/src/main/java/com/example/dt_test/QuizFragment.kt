@@ -2,24 +2,16 @@ package com.example.dt_test
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.dt_test.placeholder.PlaceholderContent
+import androidx.fragment.app.Fragment
 
-/**
- * A fragment representing a list of Items.
- */
 class QuizFragment : Fragment() {
     private val questionView by lazy {
-        Log.e("boba", "test1")
         view?.findViewById<TextView>(R.id.tvQuestion)
     }
 
@@ -46,13 +38,11 @@ class QuizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         questionView?.let {
-            Log.e("boba", "test")
             val item = quizList[questionNumber]
             it.setText( "${item.question}${item.aAns}${item.bAns}${item.cAns}")
         }
 
         btnA?.setOnClickListener {
-            Log.e("boba", "test")
             onAnswerClick(1, quizList[questionNumber].rightNumber)
         }
         btnB?.setOnClickListener {
@@ -75,8 +65,10 @@ class QuizFragment : Fragment() {
     private fun nextQuestion() {
         questionNumber++
         questionView?.let {
-            val item = quizList[questionNumber]
-            it.setText( "${item.question}${item.aAns}${item.bAns}${item.cAns}")
+            if (questionNumber < quizList.size) {
+                val item = quizList[questionNumber]
+                it.setText("${item.question}${item.aAns}${item.bAns}${item.cAns}")
+            }
         }
     }
 
