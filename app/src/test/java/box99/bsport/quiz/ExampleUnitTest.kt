@@ -1,4 +1,4 @@
-package com.example.dt_test
+package box99.bsport.quiz
 
 import org.junit.Test
 

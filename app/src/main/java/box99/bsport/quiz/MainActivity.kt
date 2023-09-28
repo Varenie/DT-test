@@ -1,4 +1,4 @@
-package com.example.dt_test
+package box99.bsport.quiz
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -31,20 +31,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val url = sharedPref.getString("URL", "")
 
-        if ((url?.isNotBlank()) == true) {
-            if (isOnline(this)) {
-                openWebFragment(url)
-            } else {
-                openNoConnectionFragment()
-            }
-        } else {
-            if (!checkIsEmu()) {
-                setupFirebase(this)
-            } else {
+//        if ((url?.isNotBlank()) == true) {
+//            if (isOnline(this)) {
+//                openWebFragment(url)
+//            } else {
+//                openNoConnectionFragment()
+//            }
+//        } else {
+//            if (!checkIsEmu()) {
+//                setupFirebase(this)
+//            } else {
                 openQuizFragment()
-            }
+//            }
 
-        }
+//        }
     }
 
     private fun openWebFragment(url: String) {
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val updated = task.result
 
-                        val url = remoteConfig.getString("opening_url")
+                        val url = remoteConfig.getString("url")
                         if (url == "") {
                             openQuizFragment()
                         } else {

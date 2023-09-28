@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.dt_test"
+    namespace = "box99.bsport.quiz"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.dt_test"
+        applicationId = "box99.bsport.quiz"
         minSdk = 21
         targetSdk = 33
         versionCode = 1
@@ -25,6 +25,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {

@@ -1,4 +1,4 @@
-package com.example.dt_test
+package box99.bsport.quiz
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
+
 
 class WebFragment : Fragment() {
     private val webView by lazy {
@@ -36,7 +37,6 @@ class WebFragment : Fragment() {
             webSettings.javaScriptEnabled = true
             webSettings.domStorageEnabled = true
             webSettings.javaScriptCanOpenWindowsAutomatically = true
-//        webSettings.javaScriptEnabled = true
             webSettings.loadWithOverviewMode = true
             webSettings.useWideViewPort = true
             webSettings.domStorageEnabled = true
@@ -51,7 +51,7 @@ class WebFragment : Fragment() {
         if (savedInstanceState != null) {
             webView?.restoreState(savedInstanceState)
         } else {
-            webView?.loadUrl(url!!)
+            webView?.loadUrl(url)
         }
 
         val cookieManager = CookieManager.getInstance()

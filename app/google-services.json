@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "279635660543",
-    "project_id": "dt-test-f8af7",
-    "storage_bucket": "dt-test-f8af7.appspot.com"
+    "project_number": "687348325238",
+    "project_id": "sdhuw-c896a",
+    "storage_bucket": "sdhuw-c896a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:279635660543:android:fb651d9525092e2dd5c6ca",
+        "mobilesdk_app_id": "1:687348325238:android:877de4fe6d91dc17153857",
         "android_client_info": {
-          "package_name": "com.example.dt_test"
+          "package_name": "box99.bsport.quiz"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBCe_QPLHTwpnR-9MKSNP0ejqaBuGA650U"
+          "current_key": "AIzaSyC8yRgI3HzyMUQmHBcEFly4TQkEOnSLqb8"
         }
       ],
       "services": {

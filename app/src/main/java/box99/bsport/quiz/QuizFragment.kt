@@ -1,13 +1,17 @@
-package com.example.dt_test
+package box99.bsport.quiz
 
+import android.graphics.BitmapFactory
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 
 class QuizFragment : Fragment() {
@@ -37,6 +41,7 @@ class QuizFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         questionView?.let {
             val item = quizList[questionNumber]
             it.setText( "${item.question}${item.aAns}${item.bAns}${item.cAns}")
@@ -68,6 +73,13 @@ class QuizFragment : Fragment() {
             if (questionNumber < quizList.size) {
                 val item = quizList[questionNumber]
                 it.setText("${item.question}${item.aAns}${item.bAns}${item.cAns}")
+            } else {
+                btnA?.visibility = View.GONE
+                btnB?.visibility = View.GONE
+                btnC?.visibility = View.GONE
+                questionView?.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                questionView?.setText("Congratulations!\nYou have passed the quiz!")
+
             }
         }
     }

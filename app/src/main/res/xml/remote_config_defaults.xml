@@ -14,7 +14,7 @@
         <value>Welcome to my awesome app!</value>
     </entry>
     <entry>
-        <key>opening_url</key>
+        <key>url</key>
         <value></value>
     </entry>
 </defaultsMap>
