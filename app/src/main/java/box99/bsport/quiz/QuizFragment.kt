@@ -1,17 +1,12 @@
 package box99.bsport.quiz
 
-import android.graphics.BitmapFactory
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 
 class QuizFragment : Fragment() {
@@ -30,6 +25,7 @@ class QuizFragment : Fragment() {
     }
 
     private var questionNumber = 0
+    private var rightAnswers = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -61,10 +57,11 @@ class QuizFragment : Fragment() {
     private fun onAnswerClick(buttonNumber: Int, rightNumber: Int) {
         if (buttonNumber == rightNumber) {
             Toast.makeText(requireContext(), "CORRECT!", Toast.LENGTH_SHORT).show()
-            nextQuestion()
+            rightAnswers++
         } else {
             Toast.makeText(requireContext(), "WRONG!", Toast.LENGTH_SHORT).show()
         }
+        nextQuestion()
     }
 
     private fun nextQuestion() {
@@ -78,8 +75,7 @@ class QuizFragment : Fragment() {
                 btnB?.visibility = View.GONE
                 btnC?.visibility = View.GONE
                 questionView?.textAlignment = View.TEXT_ALIGNMENT_CENTER
-                questionView?.setText("Congratulations!\nYou have passed the quiz!")
-
+                questionView?.setText("Congratulations!\nYou have passed the quiz!\nYour score is $rightAnswers/${quizList.size}")
             }
         }
     }
@@ -89,13 +85,12 @@ class QuizFragment : Fragment() {
         QuizContent("What is the nickname for Arsenal FC?\n\n","A) The Killers\n\n", "B) The Soldiers\n\n", "C) The Gunners" , 3),
         QuizContent("What number shirt is worn by a fullback in rugby union?\n\n", "A) 11\n\n", "B) 15\n\n", "C) 13",2),
         QuizContent("Which boxer did Muhammad Ali fight in ‘The Rumble in the Jungle’?\n\n", "A) George Foreman\n\n", "B) Mike Tyson\n\n", "C) Rocky Marciano", 1),
-//                "How many Premier League titles did Manchester United win under Sir Alex Ferguson?\n" +
-//                "In what year was the first edition of The Hundred cricket tournament?\n" +
-//                "Which Irish footballer was sent home before the start of the 2002 FIFA World Cup after a public quarrel with his manager?\n" +
-//                "Ricky Hatton’s first career loss was to which other boxer?\n" +
-//                "What date do all racehorses in the Northern Hemisphere celebrate their birthday?\n" +
-//                "In which sport would you commonly use the terms; chukka, neckshot and millionaire’s shot?\n" +
-//                "Which French city is known for its 24 hour motor race?\n" +
+        QuizContent("How many Premier League titles did Manchester United win under Sir Alex Ferguson?\n\n", "A) 10\n\n", "B) 7\n\n", "C) 13", 3),
+        QuizContent("In what year was the first edition of The Hundred cricket tournament?\n\n", "A) 2019\n\n", "B) 2021\n\n", "C) 2023", 2),
+        QuizContent("Which Irish footballer was sent home before the start of the 2002 FIFA World Cup after a public quarrel with his manager?\n\n", "A) Roy Keane\n\n", "B) Tim O'Neill\n\n", "C) Lionel Bolen", 1),
+        QuizContent("Ricky Hatton’s first career loss was to which other boxer?\n\n", "A) Floyd Mayweather Jr.\n\n", "B) Conor McGregor\n\n", "C) Tony Ferguson", 1),
+        QuizContent("What date do all racehorses in the Northern Hemisphere celebrate their birthday?\n\n", "A) 1st December\n\n", "B) 1st June\n\n", "C) 1st January", 3),
+        QuizContent("Which French city is known for its 24 hour motor race?\n\n", "A) Formula 1\n\n", "B) Le Mans\n\n", "C) Dakkar", 2)
 //                "What is the name of the only racehorse to win the Grand National 3 times?\n" +
 //                "Which football club has stands named after Graham Taylor and Sir Elton John?\n" +
 //                "Which sport takes place in a velodrome?\n" +

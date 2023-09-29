@@ -31,20 +31,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val url = sharedPref.getString("URL", "")
 
-//        if ((url?.isNotBlank()) == true) {
-//            if (isOnline(this)) {
-//                openWebFragment(url)
-//            } else {
-//                openNoConnectionFragment()
-//            }
-//        } else {
-//            if (!checkIsEmu()) {
-//                setupFirebase(this)
-//            } else {
+        if ((url?.isNotBlank()) == true) {
+            if (isOnline(this)) {
+                openWebFragment(url)
+            } else {
+                openNoConnectionFragment()
+            }
+        } else {
+            if (!checkIsEmu()) {
+                setupFirebase(this)
+            } else {
                 openQuizFragment()
-//            }
+            }
 
-//        }
+        }
     }
 
     private fun openWebFragment(url: String) {
